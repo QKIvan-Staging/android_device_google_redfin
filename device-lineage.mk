@@ -18,9 +18,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     HbmSVManagerOverlay
 
-# PowerShare
-include hardware/google/pixel/powershare/device.mk
-
 # Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-V2-ndk.vendor:64

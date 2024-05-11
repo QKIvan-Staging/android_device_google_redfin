@@ -64,7 +64,23 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 # PRODUCT_RESTRICT_VENDOR_FILES := all
 
 PRODUCT_MANUFACTURER := Google
-PRODUCT_BRAND := Android
+PRODUCT_BRAND := google
 PRODUCT_NAME := aosp_redfin
 PRODUCT_DEVICE := redfin
-PRODUCT_MODEL := AOSP on redfin
+PRODUCT_MODEL := Pixel 5
+
+# Inherit some common aosp stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+
+include device/google/redfin/device-lineage.mk
+
+# Boot animation
+TARGET_BOOT_ANIMATION_RES := 1080
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_PRODUCT=redfin \
+    PRIVATE_BUILD_DESC="redfin-user 14 UP1A.231105.001.B2 11260668 release-keys"
+
+BUILD_FINGERPRINT := google/redfin/redfin:14/UP1A.231105.001.B2/11260668:user/release-keys
+
+$(call inherit-product, vendor/google/redfin/redfin-vendor.mk)
